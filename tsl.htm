@@ -1,0 +1,220 @@
+﻿<!doctype html>
+<html>
+ <head>
+  <title>Tri-state logic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <style>
+   .ctrl
+   {
+    background-color: #FFFFFF;
+    margin:0;
+    padding:0;
+    width:100%;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;"
+   }
+  </style>
+ </head>
+ <body>
+  <svg id="LogicSvg" width="100" height="100">
+   <text id="LogicSvgTxt" x="-10" y="0" text-anchor="end">X</text>
+   <rect id="LogicSvgScr" x="0" y="0" width="100" height="100" fill="rgb(0,0,0)" style="fill-opacity:0.0;" shape-rendering="optimizeSpeed">
+  </svg>
+
+  <br>
+  <table border="1" width="100%" cellpadding="0" cellspacing="0">
+   <tr>
+    <td id="t_O0" align="center" width="10%"><span id="ValO0"></span></td>
+    <td id="t_O1" align="center" width="10%"><span id="ValO1"></span></td>
+    <td id="t_O2" align="center" width="10%"><span id="ValO2"></span></td>
+    <td id="t_O3" align="center" width="10%"><span id="ValO3"></span></td>
+    <td id="t_O4" align="center" width="10%"><span id="ValO4"></span></td>
+    <td id="t_O5" align="center" width="10%"><span id="ValO5"></span></td>
+    <td id="t_O6" align="center" width="10%"><span id="ValO6"></span></td>
+    <td id="t_O7" align="center" width="10%"><span id="ValO7"></span></td>
+    <td id="t_O8" align="center" width="10%"><span id="ValO8"></span></td>
+    <td id="t_O9" align="center" width="10%"><span id="ValO9"></span></td>
+   </tr>
+   <tr>
+    <td id="t_I0" align="center" width="10%"><span id="ValI0"></span></td>
+    <td id="t_I1" align="center" width="10%"><span id="ValI1"></span></td>
+    <td id="t_I2" align="center" width="10%"><span id="ValI2"></span></td>
+    <td id="t_I3" align="center" width="10%"><span id="ValI3"></span></td>
+    <td id="t_I4" align="center" width="10%"><span id="ValI4"></span></td>
+    <td id="t_I5" align="center" width="10%"><span id="ValI5"></span></td>
+    <td id="t_I6" align="center" width="10%"><span id="ValI6"></span></td>
+    <td id="t_I7" align="center" width="10%"><span id="ValI7"></span></td>
+    <td id="t_I8" align="center" width="10%"><span id="ValI8"></span></td>
+    <td id="t_I9" align="center" width="10%"><span id="ValI9"></span></td>
+   </tr>
+   <tr id="_1">
+    <td id="t_10" align="center"><input type="button" class="ctrl" id="_10" onclick="SetVal(0, 1)"></td>
+    <td id="t_11" align="center"><input type="button" class="ctrl" id="_11" onclick="SetVal(1, 1)"></td>
+    <td id="t_12" align="center"><input type="button" class="ctrl" id="_12" onclick="SetVal(2, 1)"></td>
+    <td id="t_13" align="center"><input type="button" class="ctrl" id="_13" onclick="SetVal(3, 1)"></td>
+    <td id="t_14" align="center"><input type="button" class="ctrl" id="_14" onclick="SetVal(4, 1)"></td>
+    <td id="t_15" align="center"><input type="button" class="ctrl" id="_15" onclick="SetVal(5, 1)"></td>
+    <td id="t_16" align="center"><input type="button" class="ctrl" id="_16" onclick="SetVal(6, 1)"></td>
+    <td id="t_17" align="center"><input type="button" class="ctrl" id="_17" onclick="SetVal(7, 1)"></td>
+    <td id="t_18" align="center"><input type="button" class="ctrl" id="_18" onclick="SetVal(8, 1)"></td>
+    <td id="t_19" align="center"><input type="button" class="ctrl" id="_19" onclick="SetVal(9, 1)"></td>
+   </tr>
+   <tr id="_3">
+    <td id="t_30" align="center"><input type="button" class="ctrl" id="_30" onclick="SetVal(0, 3)"></td>
+    <td id="t_31" align="center"><input type="button" class="ctrl" id="_31" onclick="SetVal(1, 3)"></td>
+    <td id="t_32" align="center"><input type="button" class="ctrl" id="_32" onclick="SetVal(2, 3)"></td>
+    <td id="t_33" align="center"><input type="button" class="ctrl" id="_33" onclick="SetVal(3, 3)"></td>
+    <td id="t_34" align="center"><input type="button" class="ctrl" id="_34" onclick="SetVal(4, 3)"></td>
+    <td id="t_35" align="center"><input type="button" class="ctrl" id="_35" onclick="SetVal(5, 3)"></td>
+    <td id="t_36" align="center"><input type="button" class="ctrl" id="_36" onclick="SetVal(6, 3)"></td>
+    <td id="t_37" align="center"><input type="button" class="ctrl" id="_37" onclick="SetVal(7, 3)"></td>
+    <td id="t_38" align="center"><input type="button" class="ctrl" id="_38" onclick="SetVal(8, 3)"></td>
+    <td id="t_39" align="center"><input type="button" class="ctrl" id="_39" onclick="SetVal(9, 3)"></td>
+   </tr>
+   <tr id="_2">
+    <td id="t_20" align="center"><input type="button" class="ctrl" id="_20" onclick="SetVal(0, 2)"></td>
+    <td id="t_21" align="center"><input type="button" class="ctrl" id="_21" onclick="SetVal(1, 2)"></td>
+    <td id="t_22" align="center"><input type="button" class="ctrl" id="_22" onclick="SetVal(2, 2)"></td>
+    <td id="t_23" align="center"><input type="button" class="ctrl" id="_23" onclick="SetVal(3, 2)"></td>
+    <td id="t_24" align="center"><input type="button" class="ctrl" id="_24" onclick="SetVal(4, 2)"></td>
+    <td id="t_25" align="center"><input type="button" class="ctrl" id="_25" onclick="SetVal(5, 2)"></td>
+    <td id="t_26" align="center"><input type="button" class="ctrl" id="_26" onclick="SetVal(6, 2)"></td>
+    <td id="t_27" align="center"><input type="button" class="ctrl" id="_27" onclick="SetVal(7, 2)"></td>
+    <td id="t_28" align="center"><input type="button" class="ctrl" id="_28" onclick="SetVal(8, 2)"></td>
+    <td id="t_29" align="center"><input type="button" class="ctrl" id="_29" onclick="SetVal(9, 2)"></td>
+   </tr>
+   <tr id="_0">
+    <td id="t_00" align="center"><input type="button" class="ctrl" id="_00" onclick="SetVal(0, 0)"></td>
+    <td id="t_01" align="center"><input type="button" class="ctrl" id="_01" onclick="SetVal(1, 0)"></td>
+    <td id="t_02" align="center"><input type="button" class="ctrl" id="_02" onclick="SetVal(2, 0)"></td>
+    <td id="t_03" align="center"><input type="button" class="ctrl" id="_03" onclick="SetVal(3, 0)"></td>
+    <td id="t_04" align="center"><input type="button" class="ctrl" id="_04" onclick="SetVal(4, 0)"></td>
+    <td id="t_05" align="center"><input type="button" class="ctrl" id="_05" onclick="SetVal(5, 0)"></td>
+    <td id="t_06" align="center"><input type="button" class="ctrl" id="_06" onclick="SetVal(6, 0)"></td>
+    <td id="t_07" align="center"><input type="button" class="ctrl" id="_07" onclick="SetVal(7, 0)"></td>
+    <td id="t_08" align="center"><input type="button" class="ctrl" id="_08" onclick="SetVal(8, 0)"></td>
+    <td id="t_09" align="center"><input type="button" class="ctrl" id="_09" onclick="SetVal(9, 0)"></td>
+   </tr>
+  </table>
+  <br>
+
+  Path: <input type="button" value="^" onclick="ViewBack()"><span id="Path"></span>
+  <br>
+
+  Mode: <select id="WorkMode" onchange="SetWorkMode()">
+   <option>Move | Rotate | Move sel</option>
+   <option>Enter | Connection | Propagation</option>
+   <option>Name | Delete | Select</option>
+   <option>Replace gate | - | Insert gate</option>
+  </select>
+  <br>
+  
+  Gate: <select id="BoolFunction">
+   <option>Reset</option>
+   <option>BUF</option>
+   <option>NOT</option>
+   <option>FALSE</option>
+   <option>TRUE</option>
+   <option>AND</option>
+   <option>NAND</option>
+   <option>OR</option>
+   <option>NOR</option>
+   <option>XOR</option>
+   <option>XNOR</option>
+   <option>EQU</option>
+   <option>NEQU</option>
+   <option>IMP</option>
+   <option>NIMP</option>
+   <option>CON</option>
+   <option>NCON</option>
+   <option>Input/Output</option>
+   <option>Circuit</option>
+   <option>Truth table</option>
+   <option>Copy</option>
+  </select>
+  <input type="button" value="Reset" onclick="Reset()">
+  <br>
+
+  Convention: <select id="LogicConvention" onchange="SetConvention()">
+   <option>Classic</option>
+   <option>Both/None negation</option>
+   <option>Sobocinski ternary</option>
+   <option>Binary with error</option>
+   <option>Lukasiewicz ternary</option>
+  </select>
+  <br>
+
+  Default: <select id="LogicDefault">
+   <option>False</option>
+   <option>True</option>
+   <option selected="selected">None</option>
+   <option>Both</option>
+  </select>
+  <br>
+
+  Buttons: <select id="ValBtnOpt1" onchange="SetValBtnOpt()">
+   <option>Quaternary</option>
+   <option>Ternary</option>
+   <option>Binary</option>
+  </select>
+  <select id="ValBtnOpt2" onchange="SetValBtnOpt()">
+   <option>All</option>
+   <option>Left</option>
+   <option>Right</option>
+  </select>
+  <hr>
+
+  <input type="button" value="Export" onclick="Export()" />
+  <input type="button" value="Import" onclick="Import()" />
+  <input type="button" value="Template" onclick="GenTableTempl()" />
+  <input type="button" value="Function" onclick="GenTable()" />
+  <input type="button" value="Formula - gates" onclick="GetFormula(0)" />
+  <input type="button" value="Formula - logic" onclick="GetFormula(1)" />
+  <input type="button" value="Formula - numeric" onclick="GetFormula(2)" />
+  <br>
+  <textarea rows="20" cols="50" style="width:100%" id="ImpExp"></textarea>
+
+  <hr>
+
+  <table border="1" width="100%">
+   <tr><td>Circuit grid:</td><td><input size="3" id="ConfGridStep" type="number" min="1" max="1000"></td></tr>
+   <tr><td>Config grid:</td><td><input size="3" id="ConfGridText" type="number" min="1" max="1000"></td></tr>
+   <tr><td>Circuit font:</td><td><input size="3" id="ConfFontSize1" type="number" min="1" max="1000"></td></tr>
+   <tr><td>Config font:</td><td><input size="3" id="ConfFontSize2" type="number" min="1" max="1000"></td></tr>
+   <tr><td>Element size:</td><td><input size="3" id="ConfElementSize" type="number" min="1" max="1000"></td></tr>
+   <tr><td>Config lines:</td><td><input size="3" id="ConfTruthLines" type="number" min="1" max="1000"></td></tr>
+   <tr><td>Canvas width:</td><td><input size="3" id="ConfCanvasW" type="number" min="1" max="100000"></td></tr>
+   <tr><td>Canvas height:</td><td><input size="3" id="ConfCanvasH" type="number" min="1" max="100000"></td></tr>
+   <tr><td>Button height:</td><td><input size="3" id="ConfButtonHeight" type="number" min="1" max="1000"></td></tr>
+   <tr><td colspan="2"><input type="button" value="Apply" onclick="ConfigSet()"><input type="button" value="Reset" onclick="ConfigReset()"></td></tr>
+  </table>
+  
+
+  <script src="unistorage.js">
+  </script>
+  <script src="logicelement.js">
+  </script>
+  <script src="logiccalc.js">
+  </script>
+  <script src="logicstd.js">
+  </script>
+  <script src="graphconf.js">
+  </script>
+  <script src="graph.js">
+  </script>
+  <script src="core.js">
+  </script>
+  <script src="configfile.js">
+  </script>
+  <script src="impexp.js">
+  </script>
+  <script src="logicfunc.js">
+  </script>
+  <script>
+   Init();
+  </script>
+ </body>
+</html>
+
