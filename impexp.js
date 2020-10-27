@@ -172,3 +172,22 @@ function Import()
     Repaint();
 }
 
+function MemoSave(N)
+{
+    var Txt = document.getElementById("ImpExp").value;
+    if (Txt != "")
+    {
+        DataSet("TriStateLogic_Slot" + N, Txt);
+    }
+    else
+    {
+        DataDelete("TriStateLogic_Slot" + N);
+    }
+}
+
+function MemoLoad(N)
+{
+    var Txt = DataGetDefault("TriStateLogic_Slot" + N, "");
+    document.getElementById("ImpExp").value = Txt;
+}
+

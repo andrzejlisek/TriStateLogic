@@ -158,6 +158,10 @@ function Init()
     LogicSvg.addEventListener("mousedown", MouseDown_);
     LogicSvg.addEventListener("mousemove", MouseMove_);
     LogicSvg.addEventListener("mouseup", MouseUp_);
+    LogicSvg.addEventListener("touchstart", MouseDown_0);
+    LogicSvg.addEventListener("touchmove", MouseMove_0);
+    LogicSvg.addEventListener("touchend", MouseUp_0);
+    LogicSvg.addEventListener("touchcancel", MouseReset);
     SetVal(-1, 0);
 
     window.addEventListener("resize", WindowResize, false);

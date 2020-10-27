@@ -532,6 +532,7 @@ function MouseDown(X, Y)
                     }
                     if (WorkMode == 1)
                     {
+                        MouseReset();
                         if (SelectedElementTerminal != 0)
                         {
                             if ((SelectedElementTerminal0 != 0) && (SelectedElementTerminal != 0))
@@ -577,6 +578,7 @@ function MouseDown(X, Y)
                     {
                         if (SelectedElementTerminal == 0)
                         {
+                            MouseReset();
                             Elem_.Name = PromptChange("Element name", Elem_.Name);
                         }
                         else
@@ -587,6 +589,7 @@ function MouseDown(X, Y)
                     }
                     if (WorkMode == 3)
                     {
+                        MouseReset();
                         if (NewElement(document.getElementById("BoolFunction").selectedIndex, SelectedElement, false))
                         {
                             SelectedElementList = [];
@@ -603,10 +606,12 @@ function MouseDown(X, Y)
         {
             if (WorkMode == 1)
             {
+                MouseReset();
                 Elem.Propagation = parseInt(PromptChange("Propagation cycle", Elem.Propagation));
             }
             if (WorkMode == 3)
             {
+                MouseReset();
                 Repaint();
                 if (NewElement(document.getElementById("BoolFunction").selectedIndex, -1, false))
                 {
@@ -910,27 +915,78 @@ function MouseUp(X, Y)
 
 function MouseDown_(Evt)
 {
-    var _ = LogicSvg.getBoundingClientRect();
-    MouseBtn = true;
-    MouseDown(Evt.clientX + window.scrollX - _.left, Evt.clientY + window.scrollX - _.top);
+    if (ConfTouch == 0)
+    {
+        var _ = LogicSvg.getBoundingClientRect();
+        MouseBtn = true;
+        MouseDown(Evt.clientX + window.scrollX - _.left, Evt.clientY + window.scrollX - _.top);
+    }
 }
 
 function MouseMove_(Evt)
 {
-    if (MouseBtn)
+    if (ConfTouch == 0)
     {
-        var _ = LogicSvg.getBoundingClientRect();
-        MouseMove(Evt.clientX + window.scrollX - _.left, Evt.clientY + window.scrollX - _.top);
+        if (MouseBtn)
+        {
+            var _ = LogicSvg.getBoundingClientRect();
+            MouseMove(Evt.clientX + window.scrollX - _.left, Evt.clientY + window.scrollX - _.top);
+        }
     }
 }
 
 function MouseUp_(Evt)
 {
-    var _ = LogicSvg.getBoundingClientRect();
-    MouseUp(Evt.clientX + window.scrollX - _.left, Evt.clientY + window.scrollX - _.top);
-    MouseBtn = false;
+    if (ConfTouch == 0)
+    {
+        var _ = LogicSvg.getBoundingClientRect();
+        MouseUp(Evt.clientX + window.scrollX - _.left, Evt.clientY + window.scrollX - _.top);
+        MouseBtn = false;
+    }
 }
 
+
+function MouseDown_0(Evt)
+{
+    if ((ConfTouch == 1) && (Evt.touches.length > 0))
+    {
+        document.getElementsByTagName("BODY")[0].className = "lock-screen";
+        var _ = LogicSvg.getBoundingClientRect();
+        MouseBtn = true;
+        MouseDown(Evt.touches[0].clientX + window.scrollX - _.left, Evt.touches[0].clientY + window.scrollX - _.top);
+    }
+}
+
+function MouseMove_0(Evt)
+{
+    if ((ConfTouch == 1) && (Evt.touches.length > 0))
+    {
+        if (MouseBtn)
+        {
+            var _ = LogicSvg.getBoundingClientRect();
+            MouseMove(Evt.touches[0].clientX + window.scrollX - _.left, Evt.touches[0].clientY + window.scrollX - _.top);
+        }
+    }
+}
+
+function MouseUp_0(Evt)
+{
+    if ((ConfTouch == 1))
+    {
+        document.getElementsByTagName("BODY")[0].className = "";
+        var _ = LogicSvg.getBoundingClientRect();
+        MouseUp(0, 0);
+        MouseBtn = false;
+    }
+}
+
+function MouseReset(Evt)
+{
+    if ((ConfTouch == 1))
+    {
+        document.getElementsByTagName("BODY")[0].className = "";
+    }
+}
 
 function Reset()
 {

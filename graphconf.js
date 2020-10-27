@@ -22,6 +22,7 @@ var ConfTruthLines = DataGetIDefault("TriStateLogic_ConfTruthLines", 20);
 var ConfCanvasW = DataGetIDefault("TriStateLogic_ConfCanvasW", 500);
 var ConfCanvasH = DataGetIDefault("TriStateLogic_ConfCanvasH", 500);
 var ConfButtonHeight = DataGetIDefault("TriStateLogic_ConfButtonHeight", 30);
+var ConfTouch = DataGetIDefault("TriStateLogic_ConfTouch", 0);
 
 function ConfigReset()
 {
@@ -34,6 +35,7 @@ function ConfigReset()
     DataDelete("TriStateLogic_ConfCanvasW");
     DataDelete("TriStateLogic_ConfCanvasH");
     DataDelete("TriStateLogic_ConfButtonHeight");
+    DataDelete("TriStateLogic_ConfTouch");
 }
 
 function ConfigGet()
@@ -47,6 +49,7 @@ function ConfigGet()
     document.getElementById("ConfCanvasW").value = ConfCanvasW;
     document.getElementById("ConfCanvasH").value = ConfCanvasH;
     document.getElementById("ConfButtonHeight").value = ConfButtonHeight;
+    document.getElementById("ConfTouch").selectedIndex = ConfTouch;
 }
 
 function ConfigSet()
@@ -60,6 +63,7 @@ function ConfigSet()
     ConfCanvasW = parseInt(document.getElementById("ConfCanvasW").value);
     ConfCanvasH = parseInt(document.getElementById("ConfCanvasH").value);
     ConfButtonHeight = parseInt(document.getElementById("ConfButtonHeight").value);
+    ConfTouch = parseInt(document.getElementById("ConfTouch").selectedIndex);
 
     DataSetI("TriStateLogic_ConfGridStep", ConfGridStep);
     DataSetI("TriStateLogic_ConfGridText", ConfGridText);
@@ -70,6 +74,7 @@ function ConfigSet()
     DataSetI("TriStateLogic_ConfCanvasW", ConfCanvasW);
     DataSetI("TriStateLogic_ConfCanvasH", ConfCanvasH);
     DataSetI("TriStateLogic_ConfButtonHeight", ConfButtonHeight);
+    DataSetI("TriStateLogic_ConfTouch", ConfTouch);
     
     ConfFontSize1 = Math.round(ConfGridStep * ConfFontSize1x / 10) + "px";
     ConfFontSize2 = Math.round(ConfGridText * ConfFontSize2x / 10) + "px";

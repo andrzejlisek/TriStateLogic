@@ -265,6 +265,8 @@ The replacements used in the **Formula \- logic** and **Formula \- numeric** are
 | CON\(p, q\) | p ⇐ q | p ≥ q |
 | NCON\(p, q\) | p ⇍ q | p < q |
 
+Below the text field, there are ten **Save n** buttons and **Load n** button, where **n** is a digit from **0** to **9**\. The button allows to save and load contents of the text field regardless purpose of the content\. This is alternative for copying text from the field to file or from file to the field\. After you click the **Save n** button, the text will be stored in the browser local storage in slot 0\. To save graph in local storage, click the **Export** button above the text field, after this click the **Save 0** button\. To load the saved graph, click the **Load 0**, after this click the **Import** button\.
+
 ## Settings
 
 The most bottom part of the interface is the settings table\. This parameters affects the TriStateLogic appearance and usability\. There are the following parameters:
@@ -279,6 +281,7 @@ The most bottom part of the interface is the settings table\. This parameters af
 * **Canvas width** \- The canvas width in pixels\.
 * **Canvas height** \- The canvas height in pixels\.
 * **Button height** \- The I/O button height in pixels\.
+* **Touch screen** \- Using touch screen instead of mouse\. The event handling of screen touchech slightly differs from the mouse clicks\. Set **Yes** if you use touch screen \(including smartphone, tablet\) instead of mouse\.
 
 Below the parameters there are two buttons:
 
