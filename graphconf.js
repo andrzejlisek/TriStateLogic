@@ -1,6 +1,6 @@
 var ConfFontName = "Arial, Helvetica, Verdana, sans-serif";
 var ConfSignalColor = ["rgb(255, 0, 0)", "rgb(0, 255, 0)", "rgb(255, 255, 0)", "rgb(0, 0, 255)"];
-var ConfSignalSymbol = ["FLfl0", "THth1", "Nn-2", "Bb#3"]
+var ConfSignalSymbol = ["FLfl0", "THth1", "Nn-2", "Bb#3"];
 var ConfSignalName = ["false", "true", "none", "both"];
 var ConfOrientationMarkSize = 4;
 var ConfSelectMarkSize = 2;

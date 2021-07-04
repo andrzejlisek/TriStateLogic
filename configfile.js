@@ -14,7 +14,7 @@ function ConfigFile()
                 this.Raw[Txt[I].substr(0, Idx)] = Txt[I].substr(Idx + 1);
             }
         }
-    }
+    };
     
     this.TextSave = function()
     {
@@ -24,17 +24,17 @@ function ConfigFile()
             Txt = Txt + Key + "=" + CF.Raw[Key] + "\n";
         }
         return Txt;
-    }
+    };
     
     this.ParamClear = function()
     {
         Raw = {};
-    }
+    };
     
     this.ParamRemove = function(Name)
     {
         delete this.Raw[Name]; 
-    }
+    };
     
     this.ParamGetS = function(Name)
     {
@@ -46,12 +46,12 @@ function ConfigFile()
         {
             return "";
         }
-    }
+    };
 
     this.ParamGetI = function(Name)
     {
         return parseInt(this.ParamGetS(Name));
-    }
+    };
 
     this.ParamGetB = function(Name)
     {
@@ -63,17 +63,17 @@ function ConfigFile()
         {
             return false;
         }
-    }
+    };
 
     this.ParamSetS = function(Name, Value)
     {
         this.Raw[Name] = Value;
-    }
+    };
 
     this.ParamSetI = function(Name, Value)
     {
         this.ParamSetS(Name, "" + Value + "");
-    }
+    };
 
     this.ParamSetB = function(Name, Value)
     {
@@ -85,7 +85,7 @@ function ConfigFile()
         {
             this.ParamSetS(Name, "0");
         }
-    }
+    };
 
     this.ParamExists = function(Name)
     {
@@ -97,6 +97,6 @@ function ConfigFile()
         {
             return false;
         }
-    }
+    };
 }
 

@@ -289,11 +289,6 @@ function CopyElement(NewElem_, TermI, TermO)
     
     CopyElementWork(NewElem_, ElemObj);
     
-    //ElementTreeList = [];
-    //ElementGetTree(ElemNum);
-//    alert("Do przetworzenia")
-
-    //return "Zaznaczono " + SelectedElementList[0] + " z " + SelectedElementListN;
     return "";
 }
 

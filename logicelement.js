@@ -45,7 +45,7 @@ function LogicElement()
     this.GetElemObj = function(N)
     {
         return Elements[this.Elements[N]];
-    }
+    };
     
     this.NameId = function()
     {
@@ -58,7 +58,7 @@ function LogicElement()
         {
             return this.Name.substr(0, NameSep).toUpperCase();
         }
-    }
+    };
     
     // IO, Truth table
     this.FuncTable = [];
@@ -86,7 +86,7 @@ function LogicElement()
             this.DefaultVal.push(LogicDefault_);
             TermO_--;
         }
-    }
+    };
 
     // Set terminal assignment to IO element
     this.SetIO = function(Term, Delta)
@@ -140,7 +140,7 @@ function LogicElement()
                 }
             }
         }
-    }
+    };
     
     // Set truth table function element
     this.SetFunc = function(Val)
@@ -149,7 +149,7 @@ function LogicElement()
         {
             this.FuncTable.push(Val);
         }
-    }
+    };
     
     // Add or remove connection
     this.SetConn = function(Elem1, Term1, Elem2, Term2)
@@ -168,7 +168,7 @@ function LogicElement()
             }
         }
         this.Conn.push([Elem1, Term1, Elem2, Term2]);
-    }
+    };
     
     // Remove element
     this.DeleteElem = function(Elem0)
@@ -198,7 +198,7 @@ function LogicElement()
                 this.Conn[I][2]--;
             }
         }
-    }
+    };
     
     
     this.Process = function()
@@ -311,7 +311,7 @@ function LogicElement()
                 this.ValO[I] = this.ValO_[I];
             }
         }
-    }
+    };
     
     this.GetFormulaConn = [];
     
@@ -327,7 +327,7 @@ function LogicElement()
             this.GetFormulaConn.push(ConnVal);
             return true;
         }
-    }
+    };
     
     // Get function formula in circuit by connection back tracing
     this.GetFormulaFromTerm = function(ElemN, TermN, X1, X2, FormType)
@@ -384,7 +384,7 @@ function LogicElement()
             }
         }
         return "_";
-    }
+    };
     
     // Get function formula
     this.GetFormula = function(N, X1, X2, FormType)
@@ -644,6 +644,6 @@ function LogicElement()
         }
 
         return "Undefined";
-    }
+    };
 }
 

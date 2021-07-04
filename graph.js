@@ -134,8 +134,8 @@ function Repaint()
     }
 
     // Scrolling characters
-    var ScrollUp = "↑";
-    var ScrollDn = "↓";
+    var ScrollUp = String.fromCharCode(708);
+    var ScrollDn = String.fromCharCode(709);
 
     // Draw circuit
     if (Elem.Type == 0)
@@ -156,7 +156,7 @@ function Repaint()
                 var Y_ = 0 - (ConfGridStep * (NameArray.length - 1));
                 for (var II = 0; II < NameArray.length; II++)
                 {
-                    SvgAddText(LogicInfo, X, Y + Y_, NameArray[II], ConfDrawFore)
+                    SvgAddText(LogicInfo, X, Y + Y_, NameArray[II], ConfDrawFore);
                     Y_ = Y_ + ConfGridStep;
                     Y_ = Y_ + ConfGridStep;
                 }
@@ -284,24 +284,24 @@ function Repaint()
 
         var X = TruthX * ConfGridText;
         var Y = TruthY * ConfGridText;
-        SvgAddText(LogicInfo, X, Y, "+", ConfDrawFore)
-        SvgAddText(LogicInfo, X, Y + (ConfGridText * TruthH), ScrollUp, ConfDrawFore)
-        SvgAddText(LogicInfo, X, Y + (ConfGridText * TruthH * (TruthLines1 + 2)), ScrollDn, ConfDrawFore)
+        SvgAddText(LogicInfo, X, Y, "+", ConfDrawFore);
+        SvgAddText(LogicInfo, X, Y + (ConfGridText * TruthH), ScrollUp, ConfDrawFore);
+        SvgAddText(LogicInfo, X, Y + (ConfGridText * TruthH * (TruthLines1 + 2)), ScrollDn, ConfDrawFore);
 
         for (var I = 0; I < Elem.TermI; I++)
         {
             X = (TruthX + (I * TruthW) + 2) * ConfGridText;
-            SvgAddText(LogicInfo, X, Y, "I" + I, ConfDrawFore)
-            SvgAddText(LogicInfo, X, Y + (ConfGridText * TruthH), ScrollUp, ConfDrawFore)
-            SvgAddText(LogicInfo, X, Y + (ConfGridText * TruthH * (TruthLines1 + 2)), ScrollDn, ConfDrawFore)
+            SvgAddText(LogicInfo, X, Y, "I" + I, ConfDrawFore);
+            SvgAddText(LogicInfo, X, Y + (ConfGridText * TruthH), ScrollUp, ConfDrawFore);
+            SvgAddText(LogicInfo, X, Y + (ConfGridText * TruthH * (TruthLines1 + 2)), ScrollDn, ConfDrawFore);
         }
         for (var I = 0; I < Elem.TermO; I++)
         {
             X = (TruthX + ((Elem.TermI + I + 1) * TruthW)) * ConfGridText;
-            SvgAddText(LogicInfo, X, Y, "O" + I, ConfDrawFore)
-            SvgAddText(LogicInfo, X, Y + (ConfGridText * TruthH), ScrollUp, ConfDrawFore)
-            SvgAddText(LogicInfo, X, Y + (ConfGridText * TruthH * (TruthLines1 + 2)), ScrollDn, ConfDrawFore)
-            SvgAddText(LogicInfo, X, Y - (ConfGridText * TruthH), ConfSignalSymbol[Elem.DefaultVal[I]][0], ConfDrawFore)
+            SvgAddText(LogicInfo, X, Y, "O" + I, ConfDrawFore);
+            SvgAddText(LogicInfo, X, Y + (ConfGridText * TruthH), ScrollUp, ConfDrawFore);
+            SvgAddText(LogicInfo, X, Y + (ConfGridText * TruthH * (TruthLines1 + 2)), ScrollDn, ConfDrawFore);
+            SvgAddText(LogicInfo, X, Y - (ConfGridText * TruthH), ConfSignalSymbol[Elem.DefaultVal[I]][0], ConfDrawFore);
         }
         Y += ConfGridText * TruthH;
         Y += ConfGridText * TruthH;
@@ -319,14 +319,14 @@ function Repaint()
             
             if (Val)
             {
-                SvgAddText(LogicInfo, X, Y_, "-", ConfDrawFore)
+                SvgAddText(LogicInfo, X, Y_, "-", ConfDrawFore);
             }
             for (var I = 0; I < Elem.TermI; I++)
             {
                 X = (TruthX + (I * TruthW) + 2) * ConfGridText;
                 if (Val)
                 {
-                    SvgAddText(LogicInfo, X, Y_, ConfSignalSymbol[Elem.FuncTable[II][I]][0], ConfDrawFore)
+                    SvgAddText(LogicInfo, X, Y_, ConfSignalSymbol[Elem.FuncTable[II][I]][0], ConfDrawFore);
                 }
             }
             for (var I = 0; I < Elem.TermO; I++)
@@ -334,7 +334,7 @@ function Repaint()
                 X = (TruthX + ((Elem.TermI + I + 1) * TruthW)) * ConfGridText;
                 if (Val)
                 {
-                    SvgAddText(LogicInfo, X, Y_, ConfSignalSymbol[Elem.FuncTable[II][I + Elem.TermI]][0], ConfDrawFore)
+                    SvgAddText(LogicInfo, X, Y_, ConfSignalSymbol[Elem.FuncTable[II][I + Elem.TermI]][0], ConfDrawFore);
                 }
             }
         }
@@ -363,8 +363,8 @@ function Repaint()
             {
                 Y = (TruthY_ + ((I + 1 - TruthLinesPos) * TruthH)) * ConfGridText;
                 SvgAddText(LogicInfo, X + (0 * TruthW * ConfGridText), Y, "I" + I, ConfDrawFore);
-                SvgAddText(LogicInfo, X + (1 * TruthW * ConfGridText), Y, "←", ConfDrawFore);
-                SvgAddText(LogicInfo, X + (3 * TruthW * ConfGridText), Y, "→", ConfDrawFore);
+                SvgAddText(LogicInfo, X + (1 * TruthW * ConfGridText), Y, String.fromCharCode(706), ConfDrawFore);
+                SvgAddText(LogicInfo, X + (3 * TruthW * ConfGridText), Y, String.fromCharCode(707), ConfDrawFore);
             }
         }
         for (var I = 0; I < Elem.TermO; I++)
@@ -373,8 +373,8 @@ function Repaint()
             {
                 Y = (TruthY_ + (Elem.TermI * TruthH) + ((I + 1 - TruthLinesPos) * TruthH)) * ConfGridText;
                 SvgAddText(LogicInfo, X + (0 * TruthW * ConfGridText), Y, "O" + I, ConfDrawFore);
-                SvgAddText(LogicInfo, X + (1 * TruthW * ConfGridText), Y, "←", ConfDrawFore);
-                SvgAddText(LogicInfo, X + (3 * TruthW * ConfGridText), Y, "→", ConfDrawFore);
+                SvgAddText(LogicInfo, X + (1 * TruthW * ConfGridText), Y, String.fromCharCode(706), ConfDrawFore);
+                SvgAddText(LogicInfo, X + (3 * TruthW * ConfGridText), Y, String.fromCharCode(707), ConfDrawFore);
             }
         }
         for (var I = 0; I < Elem.FuncTable.length; I++)
@@ -662,7 +662,7 @@ function MouseDown(X, Y)
         
         for (var II = 0; II < (TruthLines1 + 2); II++)
         {
-            X = TruthX * ConfGridText
+            X = TruthX * ConfGridText;
             var Y_ = Y + ((II) * ConfGridText * TruthH);
 
             if ((MouseX > (X - ConfGridText)) && (MouseX < (X + ConfGridText)) && (MouseY > (Y_ - ConfGridText)) && (MouseY < (Y_ + ConfGridText)))
